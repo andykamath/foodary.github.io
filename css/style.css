@@ -1,0 +1,52 @@
+@import url(animate.css);
+@import url(bootstrap.css);
+@import url(font-awesome.min.css);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Muli);
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(metro-bootstrap.min.css);
+
+body
+{
+  overflow-x:hidden;
+}
+
+h1
+{
+  font-size: 54px
+}
+
+p
+{
+  font-size: 24px
+}
+
+.jumbotron h1
+{
+  font-family: 'Lato';
+  font-size: 100px;
+}
+
+.jumbotron
+{
+  height: 100%;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-color: rgba(255,255,255,0.5);
+  color: #A52;
+  padding-top: 25%;
+  background-attachment: fixed;
+  margin-bottom: 0;
+}
+
+.inline
+{
+  display: inline;
+}
+
+.about
+{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
