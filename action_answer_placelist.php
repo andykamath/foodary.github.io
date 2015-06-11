@@ -4,16 +4,12 @@
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Max-Age: 86400');    // cache for 1 day
     }
-
     // Access-Control headers are received during OPTIONS requests
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
-
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
             header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
-
         exit(0);
     }
 	$res = file_get_contents("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=".$_GET['action']."&radius=5000&types=food&key=AIzaSyAZwbQCDTf-AKn0dvdNahrgXOqkZQTydTQ");
@@ -41,8 +37,15 @@
             $spacename = str_replace(" ", "+", $result['name']);
             $spaceaddress = str_replace(" ", "+", $result['vicinity']);
             $loc = "http://www.google.com/maps/dir/".$_GET['action']."/".$spacename.",+".$spaceaddress;
-			echo "<img src=\"".$result['icon']."\" height=\"200\"><br>".$result['name']."`".$result['vicinity']."ccc".$loc.";";
+            if($result['opening_hours']['open_now'])
+            {
+            	$open = "Open at this time";
+            }
+            else
+            {
+            	$open = "Not open currently"
+            }
+	    echo "<img src=\"".$result['icon']."\" height=\"200\"><br>".$result['name']."`".$result['vicinity']."<br>".$result['rating']."/5<br>Price: ".$price."/3<br>".$open."ccc".$loc.";";
     	}
 	}
 ?>
-35.109052,-80.748268
