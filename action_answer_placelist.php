@@ -1,5 +1,7 @@
 <?php
     	header("Access-Control-Allow-Origin: *");
+    	header("Access-Control-Allow-Methods: GET,PUT,POST,DELETE");
+    	header("Access-Control-Allow-Headers: Content-Type");
 	$res = file_get_contents("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=".$_POST['action']."&radius=5000&types=food&key=AIzaSyAZwbQCDTf-AKn0dvdNahrgXOqkZQTydTQ");
 	$jsonContent = json_decode($res, true);
 	foreach ($jsonContent['results'] as $result) {
